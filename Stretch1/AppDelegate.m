@@ -16,8 +16,31 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    // Override point for customization after application launch
+    NSDictionary *myDictionary = [self dictionaryForMe];
+    NSLog(@"this is my returned dictionary: %@", myDictionary);
     return YES;
+}
+
+- (NSDictionary *)dictionaryForMe{
+    return @{@"firstName":@"Michael", @"lastName":@"Sacks", @"phoneNumber":@"8675309", @"age":@21, @"birthMonth":@5, @"birthDay":@4};
+}
+
+- (NSDictionary *)secondDictionaryForMe{
+    NSMutableDictionary *secondDictionary = [NSMutableDictionary new];
+    secondDictionary[@"firstName"] = @"Michael";
+    secondDictionary[@"lastName"] = @"Sacks";
+    secondDictionary[@"phoneNumber"] = @"8675309";
+    secondDictionary[@"age"] = @21;
+    secondDictionary[@"birthMonth"] = @5;
+    secondDictionary[@"birthDay"] = @4;
+    return secondDictionary;
+}
+
+- (NSDictionary *)thridDictionaryForMe{
+    NSDictionary *secondDictionary = [NSDictionary dictionaryWithObjects:@[@"michael", @"sacks", @"8675309", @"21", @"5", @"4"] forKeys:@[@"firstName", @"lastName", @"phoneNumber", @"age",@"birthMonth", @"birthDay"]];
+    
+    return secondDictionary;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
